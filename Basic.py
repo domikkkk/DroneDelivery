@@ -64,7 +64,7 @@ class Dron:
         pass
 
 
-class All:
+class Map:
     p = Products()
     w:list[Warehouse] = []
     o:list[Order] = []
@@ -112,6 +112,6 @@ class All:
 
 
 if __name__ == "__main__":
-    a = All()
+    a = Map()
     a.read_input('busy_day.in')
     a.draw_map()
