@@ -107,7 +107,8 @@ class All:
             y.append(warehouse.r)
         plt.scatter(x, y, s=30)
         plt.legend(['orders', 'warehouses'])
-        plt.savefig('Mapa.png')
+        plt.title('Map')
+        plt.savefig('Map.png')
 
 
 if __name__ == "__main__":
