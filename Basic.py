@@ -106,7 +106,8 @@ class Map:
             x.append(warehouse.c)
             y.append(warehouse.r)
         plt.scatter(x, y, s=30)
-        plt.legend(['orders', 'warehouses'])
+        plt.scatter(x[0], y[0], s=35, c='r')
+        plt.legend(['orders', 'warehouses', 'w[0]'])
         plt.title('Map')
         plt.savefig('Map.png')
 
