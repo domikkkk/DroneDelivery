@@ -12,6 +12,9 @@ class Products:
         self.weights = [int(i) for i in filehandler.readline().split()]
         return
 
+    def mean(self):
+        return sum(self.weights) / self.amount
+
 
 class Warehouse:
     def __init__(self, idx) -> None:
@@ -87,9 +90,9 @@ class Map:
                 self.o.append(Order(i))
                 self.o[-1].read_needed_items(f)
 
-            start_r, start_c = self.w[0].r, self.w[0].c
-            for i in range(n):
-                self.d.append(Dron(i, start_r, start_c, max_weight))
+        start_r, start_c = self.w[0].r, self.w[0].c
+        for i in range(n):
+            self.d.append(Dron(i, start_r, start_c, max_weight))
         return
 
     def draw_map(self):
@@ -111,8 +114,12 @@ class Map:
         plt.title('Map')
         plt.savefig('Map.png')
 
+    def mean_products_in_order(self):
+        return sum([i.number_of_items for i in self.o]) / len(self.o)
+
 
 if __name__ == "__main__":
     a = Map()
     a.read_input('busy_day.in')
-    a.draw_map()
+    # a.draw_map()
+    print(a.mean_products_in_order())
